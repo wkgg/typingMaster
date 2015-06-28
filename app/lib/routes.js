@@ -6,6 +6,6 @@ Router.route("/", function() {
   this.render("play");
 });
 
-Router.route("/addText", function() {
-  this.render("addText");
+Router.route("/addDocument", function() {
+  this.render("addDocument");
 });
