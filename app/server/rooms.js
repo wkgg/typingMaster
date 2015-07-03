@@ -1,17 +1,10 @@
-function generateRoomSlug(roomName) {
-  return roomName.toLowerCase()
-    .replace(/ /g, "-")
-    .replace(/[^\w-]+/g, "");
-}
-
 Meteor.methods({
-  createRoom: function(roomName) {
+  createRoom: function(roomName, roomSlug) {
     if(!Meteor.userId()) {
       throw new Meteor.Error("not-authorized");
     }
 
-    var roomSlug = generateRoomSlug(roomName);
-    Rooms.insert({
+    var roomId = Rooms.insert({
       name: roomName,
       slug: roomSlug
     });
