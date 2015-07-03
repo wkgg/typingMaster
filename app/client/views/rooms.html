@@ -3,10 +3,14 @@
   {{error}}  
 
   <h2>Create a room</h2>
+  {{#if currentUser}}
   <form>
     <input type="text" name="roomName" />
     <input type="submit" value="Create" />
   </form>
+  {{else}}
+  <p>You need to login to create a room.</p>
+  {{/if}}
 
   <h2>Join other players</h2>
   <ul>
