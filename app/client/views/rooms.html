@@ -18,10 +18,19 @@
     {{> roomLink}}
   {{/each}}
   </ul>
+
+  <h2>Who's online</h2>
+  {{#each usersOnline}}
+    {{> onlineUser}}
+  {{/each}}
 </template>
 
 <template name="roomLink">
   <li>
     <a href="/room/{{slug}}">{{name}}</a>
   </li> 
+</template>
+
+<template name="onlineUser">
+  <span>{{username}}</span>
 </template>

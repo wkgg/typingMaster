@@ -13,5 +13,8 @@ Template.rooms.events({
 Template.rooms.helpers({
   rooms: function() {
     return Rooms.find({});
+  },
+  usersOnline: function() {
+    return Meteor.users.find({"status.online": true});
   }
 });
