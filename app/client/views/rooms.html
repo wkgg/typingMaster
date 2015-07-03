@@ -1,0 +1,20 @@
+<template name="rooms">
+  <h2>Create a room</h2>
+  <form>
+    <input type="text" name="roomName" />
+    <input type="submit" value="Create" />
+  </form>
+
+  <h2>Join other players</h2>
+  <ul>
+  {{#each rooms}}
+    {{> roomLink}}
+  {{/each}}
+  </ul>
+</template>
+
+<template name="roomLink">
+  <li>
+    <a href="/room/{{slug}}">{{name}}</a>
+  </li> 
+</template>
