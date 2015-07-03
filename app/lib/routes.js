@@ -15,6 +15,12 @@ Router.route("/rooms", function() {
 });
 
 Router.route("/room/:slug", function() {
-  var room = Rooms.findOne({slug: this.params.slug});
-  this.render("room", {data: room});
+  if(Meteor.userId()) {
+    var room = Rooms.findOne({slug: this.params.slug});
+    this.render("room", {data: room});
+  } else {
+    this.render("rooms", {data: {
+      error: "You need to create an account to be able to join a room."
+    }});
+  }
 });
