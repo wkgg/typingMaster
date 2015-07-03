@@ -28,8 +28,10 @@ Router.route("/room/:slug", {
     var room = Rooms.findOne({slug: this.params.slug});
     return Meteor.subscribe("joinRoom", room._id);
   },
+  data: function() {
+    return {room: Rooms.findOne({slug: this.params.slug})};
+  },
   action: function() {
-    var room = Rooms.findOne({slug: this.params.slug});
-    this.render("room", {data: room});
+    this.render("room");
   }
 });
